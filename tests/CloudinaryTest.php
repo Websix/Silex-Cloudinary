@@ -1,7 +1,7 @@
 <?php
-namespace SilexFriends\Tests;
+namespace W6\Tests;
 
-use SilexFriends\Cloudinary\Cloudinary;
+use W6\Cloudinary\Cloudinary;
 use PHPUnit_Framework_TestCase;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

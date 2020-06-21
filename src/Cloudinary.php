@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace SilexFriends\Cloudinary;
+namespace W6\Cloudinary;
 
 use Cloudinary as Driver;
 use Cloudinary\Uploader;

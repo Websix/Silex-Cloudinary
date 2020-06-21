@@ -1,16 +1,16 @@
 {
-  "name" : "mrprompt/silex-cloudinary",
+  "name" : "websix/silex-cloudinary",
   "description" : "Silex Cloudinary Provider",
   "license" : "MIT",
   "type": "library",
   "autoload" : {
     "psr-4" : {
-      "SilexFriends\\Cloudinary\\": "src/"
+      "W6\\Cloudinary\\": "src/"
     }
   },
   "autoload-dev" : {
     "psr-4" : {
-      "SilexFriends\\Tests\\Cloudinary\\": "tests/"
+      "W6\\Tests\\Cloudinary\\": "tests/"
     }
   },
   "authors" : [
@@ -19,6 +19,12 @@
       "email" : "mrprompt@gmail.com",
       "homepage" : "http://www.mrprompt.com.br",
       "role" : "Developer"
+    },
+    {
+      "name" : "Bruno Wiltemburg",
+      "email" : "brunoew@gmail.com",
+      "homepage" : "http://websix.com.br",
+      "role" : "CEO"
     }
   ],
   "require": {

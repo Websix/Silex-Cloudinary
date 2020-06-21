@@ -49,14 +49,14 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
         $service = $this;
 
         $app[static::UPLOADER] = $app->protect(
-            function (UploadedFile $file) use ($service) {
-                return $service->createFromFile($file);
+            function (UploadedFile $file, $options = []) use ($service) {
+                return $service->createFromFile($file, $options);
             }
         );
 
         $app[static::IMPORTER] = $app->protect(
-            function (string $url) use ($service) {
-                return $service->createFromUrl($url);
+            function (string $url, $options = []) use ($service) {
+                return $service->createFromUrl($url, $options);
             }
         );
     }
@@ -74,16 +74,16 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
     /**
      * @inheritdoc
      */
-    public function createFromFile(UploadedFile $file): array
+    public function createFromFile(UploadedFile $file, $options = []): array
     {
-        return Uploader::upload($file);
+        return Uploader::upload($file, $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function createFromUrl(string $url): array
+    public function createFromUrl(string $url, $options = []): array
     {
-        return Uploader::upload($url);
+        return Uploader::upload($url, $options);
     }
 }

@@ -27,7 +27,7 @@ interface CloudinaryInterface
      * @param UploadedFile $file
      * @return array
      */
-    public function createFromFile(UploadedFile $file): array;
+    public function createFromFile(UploadedFile $file, $options = []): array;
 
     /**
      * Import from url
@@ -35,5 +35,5 @@ interface CloudinaryInterface
      * @param string $url
      * @return array
      */
-    public function createFromUrl(string $url): array;
+    public function createFromUrl(string $url, $options = []): array;
 }

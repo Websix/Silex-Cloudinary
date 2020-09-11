@@ -20,6 +20,7 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
      * @var array
      */
     private $config;
+    private $options;
 
     /**
      * Cloudinary constructor.
@@ -28,13 +29,20 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
      * @param string $api_key
      * @param string $api_secret
      */
-    public function __construct(string $cloud_name, string $api_key, string $api_secret)
+    public function __construct(string $cloud_name, string $api_key, string $api_secret, string $folder = '')
     {
         $this->config = [
             'cloud_name' => $cloud_name,
             'api_key'    => $api_key,
             'api_secret' => $api_secret,
         ];
+
+        $this->options = [
+        ];
+
+        if ($folder != '') {
+            $this->options['folder'] = $folder;
+        }
     }
 
     /**
@@ -76,7 +84,7 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
      */
     public function createFromFile(UploadedFile $file, $options = []): array
     {
-        return Uploader::upload($file, $options);
+        return Uploader::upload($file, array_merge($options, $this->options));
     }
 
     /**
@@ -84,6 +92,6 @@ final class Cloudinary implements CloudinaryInterface, ServiceProviderInterface
      */
     public function createFromUrl(string $url, $options = []): array
     {
-        return Uploader::upload($url, $options);
+        return Uploader::upload($url, array_merge($options, $this->options));
     }
 }
